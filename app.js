@@ -92,9 +92,8 @@ function collectBrief(images, regenerate=false){ return {images,curriculum_frame
 async function runAnalysis(regenerate=false){
   if(!canSubmit()){ toast("Add photographs or describe the environment first."); return; }
   if(!config.apiUrl){ toast("The AWS API address is not configured yet."); return; }
-  const token=currentToken(); if(!token){ toast("Sign in to use live AI analysis."); await beginLogin(); return; }
   const button = regenerate ? $("#moreButton") : $("#analyseButton"); button.disabled=true; button.classList.add("loading"); if(!regenerate){button.innerHTML="Generating experiences <span>↻</span>";} setStatus("Reading the environment, checking the CPD guide and designing age-appropriate options…");
-  try{ const images=regenerate && lastRequest?.images ? lastRequest.images : await Promise.all(selectedFiles.map(compressImage)); const request=collectBrief(images,regenerate); lastRequest=request; const response=await fetch(config.apiUrl,{method:"POST",headers:{"content-type":"application/json",authorization:`Bearer ${token}`},body:JSON.stringify(request)}); const payload=await response.json(); if(!response.ok) throw new Error(payload.error || "The environment could not be analysed."); renderPlan(payload.plan); setStatus("Plan generated. Review it before delivery."); }
+  try{ const images=regenerate && lastRequest?.images ? lastRequest.images : await Promise.all(selectedFiles.map(compressImage)); const request=collectBrief(images,regenerate); lastRequest=request; const response=await fetch(config.apiUrl,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(request)}); const payload=await response.json(); if(!response.ok) throw new Error(payload.error || "The environment could not be analysed."); renderPlan(payload.plan); setStatus("Plan generated. Review it before delivery."); }
   catch(error){ setStatus(""); toast(error.message || "The environment could not be analysed."); }
   finally{ button.disabled=false; button.classList.remove("loading"); if(!regenerate) button.innerHTML="Generate three experiences <span>↗</span>"; }
 }
