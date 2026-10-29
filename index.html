@@ -38,7 +38,7 @@
 
       <div class="dropzone" id="dropzone" tabindex="0">
         <input id="imageFile" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden>
-        <div class="dropzone-empty" id="dropzoneEmpty"><div class="upload-icon">＋</div><h3>Drop photographs here</h3><p>Upload up to 6 images of one environment, asset or place.</p><button class="button button-secondary" id="chooseButton" type="button">Choose photographs</button><small>JPG, PNG or WEBP · compressed securely before analysis</small></div>
+        <div class="dropzone-empty" id="dropzoneEmpty"><div class="upload-icon">＋</div><h3>Drop photographs here</h3><p>Upload up to 6 images, or describe the environment below.</p><button class="button button-secondary" id="chooseButton" type="button">Choose photographs</button><small>JPG, PNG or WEBP · compressed securely before analysis</small></div>
         <div class="preview-grid" id="previewGrid" aria-live="polite"></div>
       </div>
 
@@ -49,12 +49,13 @@
         <label class="field"><span>Group size</span><input id="groupSize" type="number" min="1" max="500" value="20"></label>
         <label class="field"><span>Session type</span><select id="sessionType"><option value="service">Service</option><option value="challenge">Challenge / expedition</option><option value="routine">Daily or weekly routine</option><option value="event">Community / heritage event</option><option value="capstone">Capstone</option><option value="any" selected>Recommend the best fit</option></select></label>
         <label class="field"><span>Time available</span><select id="duration"><option>20–30 minutes</option><option>60–90 minutes</option><option selected>Half day</option><option>Full day</option><option>2–5 days</option><option>Extended programme</option></select></label>
-        <label class="field field-wide"><span>Place or setting</span><input id="setting" type="text" placeholder="e.g., school garden, mangrove boardwalk, desert camp, date farm"></label>
-        <label class="field field-wide"><span>Additional context <small>(optional)</small></span><textarea id="notes" rows="3" placeholder="What is available? Who is nearby? What do you want students to practise? Mention partners, tools, weather or accessibility needs."></textarea></label>
+        <label class="field field-wide"><span>Place or setting <small>(optional if described below)</small></span><input id="setting" type="text" placeholder="e.g., school garden, mangrove boardwalk, desert camp, date farm"></label>
+        <label class="field field-wide"><span>Describe the environment <small>(use this alone or with photographs)</small></span><textarea id="environmentDescription" rows="4" placeholder="Tell us where you are, what surrounds you, what is available, who is present, and what students could realistically touch, observe, care for or use."></textarea></label>
+        <label class="field field-wide"><span>Additional context <small>(optional)</small></span><textarea id="notes" rows="3" placeholder="What do you want students to practise? Mention partners, tools, weather, curriculum priorities or accessibility needs."></textarea></label>
       </div>
 
       <div class="consent-row"><label class="check"><input id="faceConsent" type="checkbox"><span>I confirm that any identifiable student faces in these photographs have recorded consent. Without this confirmation, the service will not interpret identities or personal traits.</span></label></div>
-      <div class="action-row"><div class="status-line" id="status">Choose photographs to begin.</div><button class="button button-primary" id="analyseButton" type="button" disabled>Generate three experiences <span>↗</span></button></div>
+      <div class="action-row"><div class="status-line" id="status">Add photographs or describe the environment to begin.</div><button class="button button-primary" id="analyseButton" type="button" disabled>Generate three experiences <span>↗</span></button></div>
     </section>
 
     <section class="results" id="results" aria-live="polite">
