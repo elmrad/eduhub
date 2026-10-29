@@ -42,11 +42,6 @@ function updateAuth(){
   if(!authReady()){ button.textContent="Sign-in pending"; button.disabled=true; status.textContent="AWS configuration pending"; return; }
   const signedIn = Boolean(currentToken()); button.textContent = signedIn ? "Sign out" : "Sign in"; button.disabled=false; status.textContent = signedIn ? "Signed in securely" : "Secure access";
 }
-$("#authButton").addEventListener("click",()=>{
-  if(!currentToken()) return beginLogin();
-  const c = authConfig(); sessionStorage.removeItem("character_lab_id_token"); location.assign(`${c.domain}/logout?${new URLSearchParams({client_id:c.clientId,logout_uri:c.redirectUri})}`);
-});
-
 function toast(message){ const element = $("#toast"); element.textContent = message; element.classList.add("show"); clearTimeout(toast.timer); toast.timer=setTimeout(()=>element.classList.remove("show"),3800); }
 function setStatus(message){ $("#status").textContent = message; }
 function canSubmit(){ return selectedFiles.length > 0 || $("#environmentDescription").value.trim() || $("#setting").value.trim() || $("#notes").value.trim(); }
@@ -100,4 +95,4 @@ async function runAnalysis(regenerate=false){
 $("#analyseButton").addEventListener("click",()=>runAnalysis(false)); $("#moreButton").addEventListener("click",()=>runAnalysis(true));
 $("#setting").addEventListener("input", updateReadyState); $("#environmentDescription").addEventListener("input", updateReadyState); $("#notes").addEventListener("input", updateReadyState);
 $("#downloadButton").addEventListener("click",()=>{ if(!lastPlan){toast("Generate a plan first.");return;} const text=JSON.stringify(lastPlan,null,2); const blob=new Blob([text],{type:"text/plain;charset=utf-8"}); const link=document.createElement("a"); link.href=URL.createObjectURL(blob); link.download="character-development-environment-plan.txt"; link.click(); URL.revokeObjectURL(link.href); });
-finishLogin().then(()=>{updateAuth();if(currentToken())toast("Signed in securely.");}).catch(error=>{updateAuth();toast(error.message)}); updateAuth();
+
