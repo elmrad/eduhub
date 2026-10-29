@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#153b35">
+  <title>GJI Character Development Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="GJI Character Development Lab home">
+      <span class="brand-mark">G</span>
+      <span><strong>GJI</strong><small>Character Development Lab</small></span>
+    </a>
+    <div class="topbar-actions">
+      <span id="authStatus" class="auth-status">Secure access</span>
+      <button id="authButton" class="button button-ghost" type="button">Sign in</button>
+    </div>
+  </header>
+
+  <main id="top" class="page-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">FROM PLACE TO PURPOSE</p>
+        <h1>See an environment.<br><em>Design character.</em></h1>
+        <p class="hero-lede">Upload several photographs of a real place and generate practical, age-appropriate character-development experiences rooted in service, challenge, heritage and reflection.</p>
+        <div class="hero-pills"><span>Al Sanaa'</span><span>Hahnian challenge</span><span>Real service</span></div>
+      </div>
+      <div class="hero-orbit" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit-dot dot-one"></div><div class="orbit-dot dot-two"></div><div class="orbit-dot dot-three"></div><span class="orbit-word">observe<br>serve<br>reflect</span></div>
+    </section>
+
+    <section class="workspace-card" aria-labelledby="brief-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / BUILD THE BRIEF</p><h2 id="brief-title">Start with the place</h2></div><span class="step-note">The more context you add, the more useful the activities become.</span></div>
+
+      <div class="dropzone" id="dropzone" tabindex="0">
+        <input id="imageFile" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden>
+        <div class="dropzone-empty" id="dropzoneEmpty"><div class="upload-icon">＋</div><h3>Drop photographs here</h3><p>Upload up to 6 images of one environment, asset or place.</p><button class="button button-secondary" id="chooseButton" type="button">Choose photographs</button><small>JPG, PNG or WEBP · compressed securely before analysis</small></div>
+        <div class="preview-grid" id="previewGrid" aria-live="polite"></div>
+      </div>
+
+      <div class="form-grid">
+        <label class="field"><span>Curriculum framework</span><select id="curriculum"><option>GJI Character Development</option><option>British / England</option><option>IB Learner Profile</option><option>Cambridge</option><option>American</option><option>Indian</option><option>SABIS</option></select></label>
+        <label class="field"><span>Phase</span><select id="phase"><option value="foundation">Foundation · FS1–Y2</option><option value="development" selected>Development · Y3–Y8</option><option value="mastery">Mastery · Y9–Y13</option></select></label>
+        <label class="field"><span>Year group</span><select id="yearGroup"><option>FS1</option><option>FS2</option><option>Y1</option><option>Y2</option><option selected>Y5</option><option>Y6</option><option>Y7</option><option>Y8</option><option>Y9</option><option>Y10</option><option>Y11</option><option>Y12</option><option>Y13</option></select></label>
+        <label class="field"><span>Group size</span><input id="groupSize" type="number" min="1" max="500" value="20"></label>
+        <label class="field"><span>Session type</span><select id="sessionType"><option value="service">Service</option><option value="challenge">Challenge / expedition</option><option value="routine">Daily or weekly routine</option><option value="event">Community / heritage event</option><option value="capstone">Capstone</option><option value="any" selected>Recommend the best fit</option></select></label>
+        <label class="field"><span>Time available</span><select id="duration"><option>20–30 minutes</option><option>60–90 minutes</option><option selected>Half day</option><option>Full day</option><option>2–5 days</option><option>Extended programme</option></select></label>
+        <label class="field field-wide"><span>Place or setting</span><input id="setting" type="text" placeholder="e.g., school garden, mangrove boardwalk, desert camp, date farm"></label>
+        <label class="field field-wide"><span>Additional context <small>(optional)</small></span><textarea id="notes" rows="3" placeholder="What is available? Who is nearby? What do you want students to practise? Mention partners, tools, weather or accessibility needs."></textarea></label>
+      </div>
+
+      <div class="consent-row"><label class="check"><input id="faceConsent" type="checkbox"><span>I confirm that any identifiable student faces in these photographs have recorded consent. Without this confirmation, the service will not interpret identities or personal traits.</span></label></div>
+      <div class="action-row"><div class="status-line" id="status">Choose photographs to begin.</div><button class="button button-primary" id="analyseButton" type="button" disabled>Generate three experiences <span>↗</span></button></div>
+    </section>
+
+    <section class="results" id="results" aria-live="polite">
+      <div class="section-heading"><div><p class="eyebrow">02 / SEE THE PLACE IN FOUR LENSES</p><h2 id="resultTitle">Environment reading</h2></div><button class="button button-ghost" id="moreButton" type="button">Generate more ↗</button></div>
+      <div class="environment-reading" id="environmentReading"></div>
+      <div class="lens-grid" id="lensGrid"></div>
+      <div class="section-heading activities-heading"><div><p class="eyebrow">03 / TURN OBSERVATION INTO ACTION</p><h2>Ranked experiences</h2></div><span class="step-note" id="activityCount"></span></div>
+      <div class="activity-list" id="activityList"></div>
+      <div class="cross-links" id="crossLinks"></div>
+      <div class="limitations" id="limitations"></div>
+      <div class="export-row"><button class="button button-secondary" id="downloadButton" type="button">Download plan as TXT</button><span>Every result is an AI-DRAFT and must be reviewed before delivery.</span></div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
