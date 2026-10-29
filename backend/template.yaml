@@ -1,0 +1,111 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Character Development Lab - multi-photo or text environment to activity plan API
+
+Parameters:
+  PortalUrl:
+    Type: String
+    Description: Exact hosted portal URL without a trailing slash
+  CognitoDomainPrefix:
+    Type: String
+    Description: Globally unique lowercase Cognito domain prefix
+    AllowedPattern: '^[a-z0-9-]+$'
+  OpenAISecretId:
+    Type: String
+    NoEcho: true
+    Description: Existing Secrets Manager secret name containing OPENAI_API_KEY
+  OpenAIModel:
+    Type: String
+    Default: gpt-6-luna
+
+Resources:
+  TeacherUserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UserPoolName: CharacterLab-Teachers
+      UsernameAttributes: [email]
+      AutoVerifiedAttributes: [email]
+      AdminCreateUserConfig:
+        AllowAdminCreateUserOnly: true
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 10
+          RequireLowercase: true
+          RequireUppercase: true
+          RequireNumbers: true
+          RequireSymbols: false
+
+  TeacherPortalClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      ClientName: CharacterLab-Web
+      UserPoolId: !Ref TeacherUserPool
+      GenerateSecret: false
+      SupportedIdentityProviders: [COGNITO]
+      AllowedOAuthFlowsUserPoolClient: true
+      AllowedOAuthFlows: [code]
+      AllowedOAuthScopes: [openid, email]
+      CallbackURLs: [!Ref PortalUrl]
+      LogoutURLs: [!Ref PortalUrl]
+      PreventUserExistenceErrors: ENABLED
+
+  TeacherPortalDomain:
+    Type: AWS::Cognito::UserPoolDomain
+    Properties:
+      Domain: !Ref CognitoDomainPrefix
+      UserPoolId: !Ref TeacherUserPool
+
+  AnalysisApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      CorsConfiguration:
+        AllowOrigins: [!Ref PortalUrl]
+        AllowMethods: [POST, OPTIONS]
+        AllowHeaders: [authorization, content-type]
+        MaxAge: 300
+      Auth:
+        DefaultAuthorizer: TeacherAuthorizer
+        Authorizers:
+          TeacherAuthorizer:
+            JwtConfiguration:
+              issuer: !Sub https://cognito-idp.${AWS::Region}.amazonaws.com/${TeacherUserPool}
+              audience: [!Ref TeacherPortalClient]
+            IdentitySource: $request.header.Authorization
+
+  AnalyzeEnvironmentFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: CharacterLab-AnalyzeEnvironment
+      Runtime: nodejs22.x
+      Architectures: [arm64]
+      Handler: index.handler
+      CodeUri: .
+      MemorySize: 1536
+      Timeout: 120
+      Environment:
+        Variables:
+          OPENAI_SECRET_ID: !Ref OpenAISecretId
+          OPENAI_MODEL: !Ref OpenAIModel
+          ALLOWED_ORIGIN: !Ref PortalUrl
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: secretsmanager:GetSecretValue
+              Resource: !Sub arn:${AWS::Partition}:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:${OpenAISecretId}-*
+      Events:
+        Analyze:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref AnalysisApi
+            Path: /analyze
+            Method: POST
+
+Outputs:
+  AnalysisApiUrl:
+    Value: !Sub https://${AnalysisApi}.execute-api.${AWS::Region}.amazonaws.com/analyze
+  CognitoDomain:
+    Value: !Sub https://${CognitoDomainPrefix}.auth.${AWS::Region}.amazoncognito.com
+  CognitoClientId:
+    Value: !Ref TeacherPortalClient
+  CognitoUserPoolId:
+    Value: !Ref TeacherUserPool
