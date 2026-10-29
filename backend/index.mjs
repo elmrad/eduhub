@@ -4,7 +4,7 @@ import { SecretsManagerClient, GetSecretValueCommand } from "@aws-sdk/client-sec
 const secrets = new SecretsManagerClient({});
 const SECRET_ID = process.env.OPENAI_SECRET_ID || "";
 const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || "*";
-const REFERENCE = readFileSync(new URL("./cpd_reference.txt", import.meta.url), "utf8").slice(0, 42000);
+const REFERENCE = readFileSync(new URL("./cpd_reference.txt", import.meta.url), "utf8").slice(0, 18000);
 let cachedKey;
 
 const schema = {
@@ -95,7 +95,7 @@ export const handler = async event => {
     const key = await getOpenAIKey();
     const images = Array.isArray(body.images) ? body.images : [];
     const input = [{role:"user",content:[{type:"input_text",text:promptFor(body)}, ...images.map(image=>({type:"input_image",image_url:image,detail:"high"}))]}];
-    const api = await fetch("https://api.openai.com/v1/responses", {method:"POST",headers:{authorization:`Bearer ${key}`,"content-type":"application/json"},body:JSON.stringify({model:process.env.OPENAI_MODEL || "gpt-6-luna",input,text:{format:{type:"json_schema",name:"character_environment_plan",strict:true,schema}},max_output_tokens:7000,store:false})});
+    const api = await fetch("https://api.openai.com/v1/responses", {method:"POST",headers:{authorization:`Bearer ${key}`,"content-type":"application/json"},body:JSON.stringify({model:process.env.OPENAI_MODEL || "gpt-6-luna",input,text:{format:{type:"json_schema",name:"character_environment_plan",strict:true,schema}},max_output_tokens:3800,store:false})});
     const data = await api.json(); if(!api.ok) throw new Error(data?.error?.message || "OpenAI request failed.");
     const outputText = data.output_text || data.output?.flatMap(item=>item.content || []).find(item=>item.type === "output_text")?.text; if(!outputText) throw new Error("OpenAI returned no structured plan.");
     return response(200,{plan:JSON.parse(outputText)});
