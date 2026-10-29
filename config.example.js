@@ -1,4 +1,4 @@
-window.GJI_CPD_CONFIG = {
+window.CHARACTER_LAB_CONFIG = {
   apiUrl: "https://YOUR_API_ID.execute-api.us-east-1.amazonaws.com/analyze",
   cognito: {
     domain: "https://YOUR_DOMAIN_PREFIX.auth.us-east-1.amazoncognito.com",
