@@ -1,0 +1,461 @@
+CHARACTER DEVELOPMENT ACTIVITY REFERENCE
+PUBLIC, SANITISED VERSION
+Version 0.1
+
+PURPOSE
+
+This reference guides an AI-assisted application that turns a real environment into purposeful character-development experiences. It is designed for teachers, facilitators and programme leaders.
+
+The application may receive photographs, a written description, or both. It should use the evidence provided to propose age-appropriate activities that combine practical action, service, challenge, reflection and evidence of character.
+
+This is a design reference, not a safeguarding approval, risk assessment, curriculum accreditation or legal instruction. Every AI-generated activity is a draft until reviewed by an appropriately authorised adult.
+
+======================================================================
+1. WHAT THE APPLICATION MUST DO
+======================================================================
+
+For each environment brief, the application should answer:
+
+1. What is genuinely visible or described?
+2. What could students meaningfully notice, care for, investigate, make, improve or explain?
+3. Which character virtue can students practise through action?
+4. Who or what benefits from the activity?
+5. What challenge is appropriate for the selected age and phase?
+6. How can the activity connect to local place, culture, heritage or community without being superficial?
+7. What will students do before, during and after the experience?
+8. What evidence could show learning, contribution and character in practice?
+9. What adaptations make participation meaningful and safe?
+10. What adult approval, specialist qualification or safeguarding check is required?
+
+The default output is three different, ranked activity drafts. The ranking should reflect authenticity, developmental value, fit with the environment and feasibility, not spectacle.
+
+======================================================================
+2. PROGRAMME PHILOSOPHY
+======================================================================
+
+2.1 Character is developed through practice
+
+A value becomes a virtue when it is translated into reliable behaviour, especially when the behaviour is inconvenient, difficult or unseen. An activity must therefore create an opportunity for students to act, decide, contribute, persist, care or improve.
+
+Do not claim that character has been developed simply because an activity has a values label. Describe observable behaviour and evidence.
+
+2.2 The school and community are part of the curriculum
+
+Character is shaped by routines, relationships, adult modelling, expectations, physical spaces, service, challenge, reflection and how people respond to mistakes. Larger activities should be connected to a daily culture of respect, responsibility and belonging.
+
+2.3 Challenge and service work together
+
+Service is useful, continuing contribution to a real person, community, place or living system. Challenge is purposeful stretch through persistence, uncertainty, responsibility, complexity or demanding conditions. The two should be planned separately, then connected where appropriate.
+
+2.4 Local culture is lived, not decorated
+
+Local stories, places, materials, ecology, food, craft, hospitality and community relationships should be used as genuine contexts for action and learning. Avoid adding a cultural label to an otherwise generic worksheet or entertainment activity.
+
+2.5 Al Sanaa' as a practical mindset
+
+Where relevant, Al Sanaa' may guide the activity through respect, humility, hospitality, kinship, reciprocity, dignity, patience, listening, good manners and stewardship. It should be modelled and practised rather than reduced to memorised definitions.
+
+2.6 Raise the stakes, not the novelty
+
+Progression should come from deeper responsibility, stronger craft, greater independence, more sustained service, better judgement or more demanding but safe conditions. Newness alone is not progression.
+
+2.7 No student returns in a worse condition than they arrived
+
+Challenge must not be reckless, humiliating, culturally insensitive or psychologically unsafe. Adults hold the duty of care while students own meaningful, age-appropriate responsibility.
+
+======================================================================
+3. CHARACTER AND VIRTUE VOCABULARY
+======================================================================
+
+The application should select one primary virtue and no more than three secondary virtues for each activity.
+
+COURAGE
+Taking a reasonable step into challenge, speaking up, trying something unfamiliar and acting despite uncertainty.
+
+RESILIENCE
+Persisting, adapting, recovering after difficulty and learning from a setback.
+
+SELF-DISCIPLINE
+Preparing, practising, following through and maintaining a standard without constant prompting.
+
+RESPONSIBILITY
+Owning a task, resource, decision, relationship or consequence.
+
+LEADERSHIP
+Enabling others, organising, deciding, communicating and using responsibility in service of the group.
+
+SERVICE
+Using time, effort, skill or knowledge to benefit a real person, community, place or living system.
+
+COMPASSION
+Noticing need and responding with practical care and dignity.
+
+TEAMWORK
+Listening, sharing roles, resolving differences and helping the group succeed.
+
+CRAFTSMANSHIP
+Working patiently and precisely, caring about quality, learning a method and improving the result.
+
+RESOURCEFULNESS
+Using limited materials, information and judgement creatively and responsibly.
+
+HUMILITY
+Recognising others, accepting feedback, sharing credit and avoiding self-importance.
+
+INTEGRITY
+Being honest, reliable and consistent between words and actions.
+
+RESPECT
+Treating people, places, animals, heritage and resources with dignity.
+
+HOSPITALITY
+Welcoming, preparing, serving, listening and helping others feel at ease.
+
+RECIPROCITY
+Contributing to a relationship rather than treating another person as a passive recipient.
+
+PATIENCE AND LISTENING
+Making room for people, stories and viewpoints before rushing to judgement.
+
+STEWARDSHIP
+Protecting land, water, wildlife, heritage, materials and shared spaces.
+
+======================================================================
+4. EXPERIENCE TYPES
+======================================================================
+
+ROUTINE
+
+Short, repeated practices that make character visible every day. Examples include greeting people respectfully, hosting a visitor, maintaining a shared space, gratitude, a helper rota or a short reflection circle.
+
+SERVICE
+
+An ongoing or repeated useful contribution with a clear beneficiary. Students should know who or what benefits, what they own and how the contribution will be sustained.
+
+CHALLENGE OR EXPEDITION
+
+An episodic experience that stretches students through preparation, effort, uncertainty, responsibility or demanding conditions. The adult boundary, stop conditions and qualification requirements must be explicit.
+
+COMMUNITY OR HERITAGE EVENT
+
+A purposeful gathering involving hosting, listening, knowledge exchange, craft, local history, conservation or community contribution. It must include preparation and follow-up, not just attendance.
+
+CAPSTONE
+
+A culminating demonstration of service, challenge, responsibility, reflection and transfer. Every student should have a meaningful route to a capstone, while the most demanding routes may require specialist preparation and selection.
+
+======================================================================
+5. AGE AND PHASE PROGRESSION
+======================================================================
+
+FOUNDATION: APPROXIMATELY FS1–Y2
+
+Ethos: wonder and habit.
+
+Priorities:
+
+- Notice people, places, living things and shared resources.
+- Practise greetings, thanks, turn-taking, care and simple responsibility.
+- Experience manageable novelty and small acts of service.
+- Build an appetite for challenge without deliberate adversity.
+
+Suitable forms: welcoming a visitor, caring for a plant, sorting and reusing materials, preparing a simple welcome, observing insects, making a thank-you, helping a buddy with adult support.
+
+Adult boundary: short duration, predictable routines, close supervision and no deliberate exposure to hazardous environments.
+
+DEVELOPMENT: APPROXIMATELY Y3–Y8
+
+Ethos: contribution and stretch.
+
+Priorities:
+
+- Provide a real beneficiary and useful student contribution.
+- Introduce fieldwork, short residential experiences and increasingly independent roles.
+- Connect local culture and heritage to doing: craft, conservation, hospitality, ecology and oral history.
+- Teach students to prepare, persist, reflect and improve.
+
+Suitable forms: conservation, coastal or garden stewardship, craft revival, food or farm work, ecology journals, navigation, junior leadership, oral-history recording and community hosting.
+
+Adult boundary: qualified supervision, clear role cards, buddy systems, staged independence and explicit stop conditions.
+
+MASTERY: APPROXIMATELY Y9–Y13
+
+Ethos: duty and adversity.
+
+Priorities:
+
+- Give students responsibility for safety, dignity, quality and impact.
+- Require independent preparation, decision-making and teaching of others.
+- Use longer journeys, real partner expectations, difficult conditions and sustained service.
+- Enable students to protect, record and transmit heritage and knowledge.
+
+Suitable forms: conservation leadership, water or land stewardship, heritage transmission, community partnership, emergency preparedness, extended expeditions, specialist challenges and integrated capstones.
+
+Adult boundary: licensed or qualified partners where required; adults retain duty of care while students own meaningful operational decisions.
+
+======================================================================
+6. ACTIVITY GENERATION RULES
+======================================================================
+
+STEP 1: IDENTIFY THE EVIDENCE BASIS
+
+State whether each important observation comes from:
+
+- A photograph.
+- The user's written description.
+- Both.
+- A reasonable proposal that still requires confirmation.
+
+Do not present a described feature as visually verified. Do not invent objects, people, facilities, weather or partners.
+
+STEP 2: SELECT ONE PRIMARY VIRTUE
+
+Choose the virtue most directly practised by the student actions. Add no more than three secondary virtues. If more are needed, split the idea into a sequence.
+
+STEP 3: IDENTIFY A REAL PURPOSE OR BENEFICIARY
+
+Complete: “This activity matters because …”
+
+The answer should name a person, relationship, community, place, living system, heritage purpose, shared resource or genuine developmental need.
+
+STEP 4: CALIBRATE CHALLENGE
+
+Use one or more dimensions:
+
+- Persistence: duration of effort.
+- Responsibility: what the student owns.
+- Uncertainty: how much judgement is required.
+- Complexity: interacting tasks, tools or people.
+- Environment: terrain, distance, heat, water, darkness or unfamiliarity.
+- Consequence: what changes if the group does not prepare or cooperate.
+
+Never increase risk merely to increase challenge.
+
+STEP 5: CONNECT TO PLACE OR CULTURE WHEN GENUINE
+
+Ask:
+
+- Is a local person, place, practice, material, ecological system or story involved?
+- Is the community treated as a partner and source of knowledge?
+- Are students doing something useful, careful or respectful with what they learn?
+- Is the framing accurate, reciprocal and non-tokenistic?
+
+If no strong connection exists, say so. Do not force one.
+
+STEP 6: ASSIGN STUDENT RESPONSIBILITY AND ADULT BOUNDARY
+
+Specify what students decide or carry out; what adults demonstrate or supervise; what requires a qualified practitioner; what conditions stop or modify the activity; and how students can contribute if they cannot perform the central physical task.
+
+STEP 7: BUILD THE EXPERIENCE ARC
+
+BEFORE: purpose, context, consent, skills, expectations and safety briefing.
+
+DURING: real work, choice, observation, feedback and short check-ins.
+
+AFTER: evidence, reflection, gratitude or reciprocity and next action.
+
+STEP 8: DEFINE EVIDENCE
+
+Use at least two types:
+
+- Observable behaviour.
+- Student explanation or reflection.
+- Beneficiary or partner feedback.
+- Product, repair, map, journal, record or completed service.
+- Peer or adult observation.
+- Progress over repeated attempts.
+
+Attendance, a photograph or a polished worksheet is not sufficient evidence by itself.
+
+======================================================================
+7. STANDARD ACTIVITY RECORD
+======================================================================
+
+Every saved activity should contain:
+
+ACTIVITY_ID
+TITLE
+STATUS: proposed | draft | reference | approved | retired
+SOURCE: reference | educator | partner | AI-draft
+PRIMARY_TYPE: routine | service | challenge | expedition | event | capstone
+PHASE
+YEAR_GROUPS
+AGE_RANGE
+GROUP_SIZE
+DURATION
+FREQUENCY
+SETTING
+PRIMARY_VIRTUE
+SECONDARY_VIRTUES
+LOCAL_OR_CULTURAL_ANCHOR
+CURRICULUM_LINKS
+REAL_NEED_OR_BENEFICIARY
+STUDENT_PURPOSE
+STUDENT_ACTIONS
+STUDENT_DECISIONS
+ADULT_ROLE
+PARTNER_OR_PRACTITIONER
+MATERIALS_AND_ASSETS
+BEFORE_PREPARATION
+DURING_SEQUENCE
+AFTER_REFLECTION
+EVIDENCE_OF_LEARNING
+EVIDENCE_OF_CHARACTER
+INCLUSION_AND_ADAPTATIONS
+SAFEGUARDING_CONTROLS
+RISK_LEVEL
+QUALIFICATIONS_OR_APPROVALS
+STOP_OR_MODIFY_CONDITIONS
+PROGRESSION_FROM_PRIOR
+NEXT_STEP
+APPROVAL_NOTES
+
+An AI-generated activity must remain AI-DRAFT until a named educator or programme lead has reviewed it.
+
+======================================================================
+8. QUALITY RUBRIC
+======================================================================
+
+Use the following dimensions to rank activities. They are planning aids, not approval decisions.
+
+CHALLENGE: Is the stretch meaningful, age-appropriate and prepared?
+
+SERVICE: Is the beneficiary, need, usefulness and reciprocity clear?
+
+LOCAL/CULTURAL AUTHENTICITY: Is the connection substantive, respectful and accurate?
+
+RESPONSIBILITY: Does the student own a real task, decision, standard or consequence?
+
+TRANSFER: Can learning and character be used in another context?
+
+SCOPE: Can the activity be adapted to different groups and access needs without losing its purpose?
+
+SEPARATE CONSTRAINTS:
+
+- Cost and complexity.
+- Partner dependency.
+- Staff qualifications.
+- Transport and facilities.
+- Weather and season.
+- Safeguarding and regulatory requirements.
+- Accessible routes.
+
+Do not reward cost, prestige, danger or social status as virtues.
+
+======================================================================
+9. REFLECTION AND EVIDENCE
+======================================================================
+
+BEFORE
+
+- What are we trying to contribute or protect?
+- Who or what benefits?
+- What might be difficult?
+- What preparation will make us reliable?
+- How should we behave as guests, hosts, helpers or custodians?
+
+DURING
+
+- What do you notice?
+- Who needs help now?
+- What choice is available?
+- What standard should we hold?
+- What would respect look like here?
+- What should we change before continuing?
+
+AFTER
+
+- What happened?
+- What did you do and decide?
+- What was difficult or uncertain?
+- Who or what benefited?
+- What did you learn about yourself, others or the place?
+- What would you do differently?
+- What will you do next?
+
+Educators should look for noticing, persistence, adaptation, dignity, responsibility, quality, inclusion and transfer—not just quiet compliance or polished answers.
+
+======================================================================
+10. INCLUSION
+======================================================================
+
+Every activity should include an access route and an extension route.
+
+Possible access roles include mapping, recording, welcoming, planning, storytelling, tool preparation, communication, monitoring, data collection and reflection. Use shorter shifts, breaks, shade, seating, adapted tools, buddy support, assistive communication or an accessible route where appropriate.
+
+Extension routes may involve greater independence, mentoring younger students, complex planning, partner communication, quality assurance, teaching or knowledge transmission.
+
+An adaptation is not a lower-value version. The question is: what meaningful responsibility can this student own safely and with dignity?
+
+======================================================================
+11. CULTURAL AND ETHICAL GUARDRAILS
+======================================================================
+
+- Treat cultural practice as lived knowledge, not a frozen performance.
+- Prefer practice, model, host, serve, listen, protect, record, repair and transmit over perform culture.
+- Engage community knowledge holders as partners and co-designers where appropriate.
+- Ask permission before recording stories, images, voices or personal information.
+- Do not portray any community as an object of charity or a problem to be solved.
+- Do not assume one family, region, generation or identity represents everyone.
+- Allow modern knowledge, science and technology to sit alongside heritage and responsibility.
+- Treat oral history as a relationship, not data extraction.
+
+For activities involving elders or a majlis, use reciprocal hospitality, listening, companionship, knowledge exchange, hosting and honouring. Avoid language that implies elders are passive recipients of student generosity.
+
+======================================================================
+12. SAFETY AND APPROVAL GATES
+======================================================================
+
+The application may suggest an activity, but its output is not a risk assessment or approval.
+
+Every activity should identify the responsible adult, supervision plan, medical/access needs, consent, location and communication plan, buddy or two-adult arrangements, emergency route, specialist qualifications, privacy permissions and stop conditions.
+
+Activities involving water, animals, fire, height, darkness, heat, remote terrain, transport, food safety or specialist equipment require additional human review and qualified supervision where applicable.
+
+If information is missing, produce a low-risk planning version or ask for clarification. Do not fabricate a partner, qualification, legal requirement or approval.
+
+======================================================================
+13. AI GENERATION INSTRUCTIONS
+======================================================================
+
+The application should:
+
+1. Treat this file as a design constraint, not proof of official approval.
+2. Use the selected year group, phase, setting, time and group needs.
+3. Generate three ranked options by default.
+4. Explain the evidence basis: photograph, description or both.
+5. Show the beneficiary, student responsibility and calibrated challenge.
+6. Include a local or cultural connection only when genuine.
+7. Include before, during and after structure, reflection and evidence.
+8. Include access and extension routes.
+9. Flag safeguarding questions and specialist approval requirements.
+10. Mark every result as AI-DRAFT until a human reviewer approves it.
+11. Never claim approval, accreditation, partner confirmation or safety without a recorded human decision.
+12. Never identify people, infer sensitive traits or diagnose students from images or descriptions.
+13. Do not mention the name of a school, organisation, brand or source file in the user-facing result.
+14. Prefer a small authentic task over an impressive but impractical event.
+15. Use respectful, non-deficit language for all communities.
+
+Suggested generation instruction:
+
+“Design a character-development experience for the selected age and phase using the photographs and/or written description as evidence. Use this reference to select a genuine virtue, real purpose, age-appropriate challenge, student responsibility, local connection if appropriate, before/during/after sequence, reflection, evidence, inclusion route and safeguarding controls. Distinguish visible evidence from described context. Do not invent partners or approvals. Return three ranked AI-DRAFT options and use neutral wording without school or brand names.”
+
+======================================================================
+14. REVIEW STATES
+======================================================================
+
+AI-DRAFT: generated from the reference and user brief; not approved for delivery.
+
+EDUCATOR-REVIEWED: checked for age fit, feasibility, inclusion and learning purpose.
+
+PROGRAMME-REVIEWED: checked for virtue alignment, cultural framing, progression and evidence.
+
+SAFEGUARDING/PARTNER-REVIEWED: required operational, venue, partner and risk checks completed.
+
+APPROVED FOR DELIVERY: named approver, date, version and conditions recorded.
+
+COMPLETED: evidence, student reflection and feedback attached.
+
+REVIEWED FOR IMPROVEMENT: activity revised, retained, paused or retired after use.
+
+END OF PUBLIC REFERENCE
