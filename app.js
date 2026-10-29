@@ -49,12 +49,18 @@ $("#authButton").addEventListener("click",()=>{
 
 function toast(message){ const element = $("#toast"); element.textContent = message; element.classList.add("show"); clearTimeout(toast.timer); toast.timer=setTimeout(()=>element.classList.remove("show"),3800); }
 function setStatus(message){ $("#status").textContent = message; }
+function canSubmit(){ return selectedFiles.length > 0 || $("#environmentDescription").value.trim() || $("#setting").value.trim() || $("#notes").value.trim(); }
+function updateReadyState(){
+  $("#analyseButton").disabled = !canSubmit();
+  if(!selectedFiles.length && canSubmit()) setStatus("Environment brief ready. You can add photographs too.");
+  if(!canSubmit()) setStatus("Add photographs or describe the environment to begin.");
+}
 function renderPreviews(){
   const grid = $("#previewGrid"); $("#dropzoneEmpty").style.display = selectedFiles.length ? "none" : "flex";
   grid.innerHTML = selectedFiles.map((file,index)=>`<div class="preview-tile"><img src="${esc(URL.createObjectURL(file))}" alt="Environment photograph ${index+1}"><span>Photo ${index+1}</span><button class="remove-photo" data-index="${index}" type="button" aria-label="Remove photo ${index+1}">×</button></div>`).join("");
   $$(".remove-photo",grid).forEach(button=>button.addEventListener("click",()=>{ selectedFiles.splice(Number(button.dataset.index),1); renderPreviews(); }));
-  $("#analyseButton").disabled = !selectedFiles.length;
-  setStatus(selectedFiles.length ? `${selectedFiles.length} photograph${selectedFiles.length===1?"":"s"} ready.` : "Choose photographs to begin.");
+  if(selectedFiles.length) setStatus(`${selectedFiles.length} photograph${selectedFiles.length===1?"":"s"} ready. Add a description if useful.`);
+  updateReadyState();
 }
 function addFiles(fileList){
   const valid = [...fileList].filter(file=>file.type.startsWith("image/"));
@@ -82,9 +88,9 @@ function renderPlan(plan){
   $("#limitations").textContent = plan.limitations?.length ? "Planning notes: " + plan.limitations.join(" · ") : "Only evidence supported by the photographs and brief is shown.";
   $("#results").classList.add("visible"); $("#results").scrollIntoView({behavior:"smooth",block:"start"});
 }
-function collectBrief(images, regenerate=false){ return {images,curriculum_framework:$("#curriculum").value,phase:$("#phase").value,year_group:$("#yearGroup").value,group_size:Number($("#groupSize").value),session_type:$("#sessionType").value,duration:$("#duration").value,setting:$("#setting").value.trim(),notes:$("#notes").value.trim(),faces_consent:$("#faceConsent").checked,regenerate,previous_titles:(lastPlan?.ranked_activities||[]).map(item=>item.title)}; }
+function collectBrief(images, regenerate=false){ return {images,curriculum_framework:$("#curriculum").value,phase:$("#phase").value,year_group:$("#yearGroup").value,group_size:Number($("#groupSize").value),session_type:$("#sessionType").value,duration:$("#duration").value,setting:$("#setting").value.trim(),environment_description:$("#environmentDescription").value.trim(),notes:$("#notes").value.trim(),faces_consent:$("#faceConsent").checked,regenerate,previous_titles:(lastPlan?.ranked_activities||[]).map(item=>item.title)}; }
 async function runAnalysis(regenerate=false){
-  if(!selectedFiles.length){ toast("Choose at least one photograph first."); return; }
+  if(!canSubmit()){ toast("Add photographs or describe the environment first."); return; }
   if(!config.apiUrl){ toast("The AWS API address is not configured yet."); return; }
   const token=currentToken(); if(!token){ toast("Sign in to use live AI analysis."); await beginLogin(); return; }
   const button = regenerate ? $("#moreButton") : $("#analyseButton"); button.disabled=true; button.classList.add("loading"); if(!regenerate){button.innerHTML="Generating experiences <span>↻</span>";} setStatus("Reading the environment, checking the CPD guide and designing age-appropriate options…");
@@ -93,5 +99,6 @@ async function runAnalysis(regenerate=false){
   finally{ button.disabled=false; button.classList.remove("loading"); if(!regenerate) button.innerHTML="Generate three experiences <span>↗</span>"; }
 }
 $("#analyseButton").addEventListener("click",()=>runAnalysis(false)); $("#moreButton").addEventListener("click",()=>runAnalysis(true));
+$("#setting").addEventListener("input", updateReadyState); $("#environmentDescription").addEventListener("input", updateReadyState); $("#notes").addEventListener("input", updateReadyState);
 $("#downloadButton").addEventListener("click",()=>{ if(!lastPlan){toast("Generate a plan first.");return;} const text=JSON.stringify(lastPlan,null,2); const blob=new Blob([text],{type:"text/plain;charset=utf-8"}); const link=document.createElement("a"); link.href=URL.createObjectURL(blob); link.download="gji-cpd-environment-plan.txt"; link.click(); URL.revokeObjectURL(link.href); });
 finishLogin().then(()=>{updateAuth();if(currentToken())toast("Signed in securely.");}).catch(error=>{updateAuth();toast(error.message)}); updateAuth();
