@@ -2,7 +2,7 @@ const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const esc = value => String(value ?? "").replace(/[&<>'"]/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[char]));
 
-const config = window.GJI_CPD_CONFIG || {};
+const config = window.CHARACTER_LAB_CONFIG || {};
 let selectedFiles = [];
 let lastPlan = null;
 let lastRequest = null;
@@ -11,10 +11,10 @@ function authConfig(){ return config.cognito || {}; }
 function authReady(){ const c = authConfig(); return Boolean(c.domain && c.clientId && c.redirectUri); }
 function decodeToken(token){ try { const part = token.split(".")[1].replace(/-/g,"+").replace(/_/g,"/"); return JSON.parse(atob(part)); } catch { return {}; } }
 function currentToken(){
-  const token = sessionStorage.getItem("gji_cpd_id_token");
+  const token = sessionStorage.getItem("character_lab_id_token");
   if(!token) return "";
   const payload = decodeToken(token);
-  if(!payload.exp || payload.exp * 1000 < Date.now() + 30000){ sessionStorage.removeItem("gji_cpd_id_token"); return ""; }
+  if(!payload.exp || payload.exp * 1000 < Date.now() + 30000){ sessionStorage.removeItem("character_lab_id_token"); return ""; }
   return token;
 }
 function randomUrlSafe(bytes=32){ const values = crypto.getRandomValues(new Uint8Array(bytes)); return btoa(String.fromCharCode(...values)).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/g,""); }
@@ -22,20 +22,20 @@ async function challengeFor(value){ const digest = await crypto.subtle.digest("S
 async function beginLogin(){
   if(!authReady()){ toast("The secure sign-in configuration is not connected yet."); return; }
   const verifier = randomUrlSafe(48); const state = randomUrlSafe(24); const c = authConfig();
-  sessionStorage.setItem("gji_cpd_pkce_verifier", verifier); sessionStorage.setItem("gji_cpd_oauth_state", state);
+  sessionStorage.setItem("character_lab_pkce_verifier", verifier); sessionStorage.setItem("character_lab_oauth_state", state);
   const query = new URLSearchParams({response_type:"code",client_id:c.clientId,redirect_uri:c.redirectUri,scope:"openid email",state,code_challenge:await challengeFor(verifier),code_challenge_method:"S256"});
   location.assign(`${c.domain}/oauth2/authorize?${query}`);
 }
 async function finishLogin(){
   if(!authReady()) return;
   const query = new URLSearchParams(location.search); const code = query.get("code"); if(!code) return;
-  const verifier = sessionStorage.getItem("gji_cpd_pkce_verifier");
-  if(query.get("state") !== sessionStorage.getItem("gji_cpd_oauth_state") || !verifier) throw new Error("The sign-in response could not be verified.");
+  const verifier = sessionStorage.getItem("character_lab_pkce_verifier");
+  if(query.get("state") !== sessionStorage.getItem("character_lab_oauth_state") || !verifier) throw new Error("The sign-in response could not be verified.");
   const c = authConfig();
   const response = await fetch(`${c.domain}/oauth2/token`, {method:"POST",headers:{"content-type":"application/x-www-form-urlencoded"},body:new URLSearchParams({grant_type:"authorization_code",client_id:c.clientId,code,redirect_uri:c.redirectUri,code_verifier:verifier})});
   const tokens = await response.json();
   if(!response.ok || !tokens.id_token) throw new Error("Sign-in could not be completed.");
-  sessionStorage.setItem("gji_cpd_id_token", tokens.id_token); sessionStorage.removeItem("gji_cpd_pkce_verifier"); sessionStorage.removeItem("gji_cpd_oauth_state"); history.replaceState({},document.title,location.pathname);
+  sessionStorage.setItem("character_lab_id_token", tokens.id_token); sessionStorage.removeItem("character_lab_pkce_verifier"); sessionStorage.removeItem("character_lab_oauth_state"); history.replaceState({},document.title,location.pathname);
 }
 function updateAuth(){
   const button = $("#authButton"); const status = $("#authStatus");
@@ -44,7 +44,7 @@ function updateAuth(){
 }
 $("#authButton").addEventListener("click",()=>{
   if(!currentToken()) return beginLogin();
-  const c = authConfig(); sessionStorage.removeItem("gji_cpd_id_token"); location.assign(`${c.domain}/logout?${new URLSearchParams({client_id:c.clientId,logout_uri:c.redirectUri})}`);
+  const c = authConfig(); sessionStorage.removeItem("character_lab_id_token"); location.assign(`${c.domain}/logout?${new URLSearchParams({client_id:c.clientId,logout_uri:c.redirectUri})}`);
 });
 
 function toast(message){ const element = $("#toast"); element.textContent = message; element.classList.add("show"); clearTimeout(toast.timer); toast.timer=setTimeout(()=>element.classList.remove("show"),3800); }
@@ -100,5 +100,5 @@ async function runAnalysis(regenerate=false){
 }
 $("#analyseButton").addEventListener("click",()=>runAnalysis(false)); $("#moreButton").addEventListener("click",()=>runAnalysis(true));
 $("#setting").addEventListener("input", updateReadyState); $("#environmentDescription").addEventListener("input", updateReadyState); $("#notes").addEventListener("input", updateReadyState);
-$("#downloadButton").addEventListener("click",()=>{ if(!lastPlan){toast("Generate a plan first.");return;} const text=JSON.stringify(lastPlan,null,2); const blob=new Blob([text],{type:"text/plain;charset=utf-8"}); const link=document.createElement("a"); link.href=URL.createObjectURL(blob); link.download="gji-cpd-environment-plan.txt"; link.click(); URL.revokeObjectURL(link.href); });
+$("#downloadButton").addEventListener("click",()=>{ if(!lastPlan){toast("Generate a plan first.");return;} const text=JSON.stringify(lastPlan,null,2); const blob=new Blob([text],{type:"text/plain;charset=utf-8"}); const link=document.createElement("a"); link.href=URL.createObjectURL(blob); link.download="character-development-environment-plan.txt"; link.click(); URL.revokeObjectURL(link.href); });
 finishLogin().then(()=>{updateAuth();if(currentToken())toast("Signed in securely.");}).catch(error=>{updateAuth();toast(error.message)}); updateAuth();
