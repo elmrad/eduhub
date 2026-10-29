@@ -63,14 +63,6 @@ Resources:
         AllowMethods: [POST, OPTIONS]
         AllowHeaders: [authorization, content-type]
         MaxAge: 300
-      Auth:
-        DefaultAuthorizer: TeacherAuthorizer
-        Authorizers:
-          TeacherAuthorizer:
-            JwtConfiguration:
-              issuer: !Sub https://cognito-idp.${AWS::Region}.amazonaws.com/${TeacherUserPool}
-              audience: [!Ref TeacherPortalClient]
-            IdentitySource: $request.header.Authorization
 
   AnalyzeEnvironmentFunction:
     Type: AWS::Serverless::Function
