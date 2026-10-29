@@ -3,7 +3,7 @@ import { SecretsManagerClient, GetSecretValueCommand } from "@aws-sdk/client-sec
 
 const secrets = new SecretsManagerClient({});
 const SECRET_ID = process.env.OPENAI_SECRET_ID || "";
-const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || "*";
+const ALLOWED_ORIGIN = (process.env.ALLOWED_ORIGIN || "*").replace(/\/$/, "");
 const REFERENCE = readFileSync(new URL("./cpd_reference.txt", import.meta.url), "utf8").slice(0, 10000);
 let cachedKey;
 
