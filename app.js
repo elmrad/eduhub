@@ -67,8 +67,8 @@ function addFiles(fileList){
   if(!valid.length){ toast("Please choose JPG, PNG or WEBP photographs."); return; }
   selectedFiles = [...selectedFiles, ...valid].slice(0,6); if(fileList.length > 6) toast("The MVP accepts up to six photographs."); renderPreviews();
 }
-$("#chooseButton").addEventListener("click",()=>$("#imageFile").click());
-$("#dropzone").addEventListener("click",event=>{ if(event.target.id === "dropzone" || event.target.closest(".dropzone-empty")) $("#imageFile").click(); });
+$("#chooseButton").addEventListener("click",event=>{ event.stopPropagation(); $("#imageFile").click(); });
+$("#dropzone").addEventListener("click",event=>{ if(event.target.id === "dropzone" || (event.target.closest(".dropzone-empty") && !event.target.closest("button"))) $("#imageFile").click(); });
 $("#dropzone").addEventListener("keydown",event=>{ if((event.key === "Enter" || event.key === " ") && event.target.id === "dropzone"){ event.preventDefault(); $("#imageFile").click(); } });
 $("#imageFile").addEventListener("change",event=>{ addFiles(event.target.files); event.target.value=""; });
 ["dragenter","dragover"].forEach(name=>$("#dropzone").addEventListener(name,event=>{event.preventDefault();$("#dropzone").classList.add("dragging");}));
